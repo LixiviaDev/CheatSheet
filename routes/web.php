@@ -13,9 +13,9 @@ Route::get('/', function () {
 Route::get('/assets/{asset}', function ($asset) {
     $path = base_path() . '/public/build/assets/' . $asset;
 
-    if (!File::exists($path)) {
-        abort(404);
-    }
+    // if (!File::exists($path)) {
+    //     abort(404);
+    // }
 
     $extension = Str::afterLast($asset, '.');
 

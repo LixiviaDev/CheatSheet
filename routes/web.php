@@ -18,6 +18,9 @@ Route::get('/assets/{asset}', function ($asset) {
     }
 
     $mime = File::mimeType($path);
+    
+    dd($mime);
+    
     return response()->file($path, [
         'Content-Type' => $mime,
         'Cache-Control' => 'max-age=31536000, public',
@@ -32,6 +35,9 @@ Route::get('/build/assets/{asset}', function ($asset) {
     }
 
     $mime = File::mimeType($path);
+
+    dd($mime);
+
     return response()->file($path, [
         'Content-Type' => $mime,
         'Cache-Control' => 'max-age=31536000, public',

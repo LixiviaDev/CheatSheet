@@ -7,8 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/build/assets/{asset}', function ($asset) {
-    return response()->file('/build/assets/' . $asset);
+Route::get('/assets/{asset}', function ($asset) {
+    // dd([response()->file('/app/public/build/assets/' . $asset)]);
+
+    return response()->file('/app/public/build/assets/' . $asset);
 });
 
 Route::get('/dashboard', function () {

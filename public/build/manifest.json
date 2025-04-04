@@ -1,6 +1,10 @@
 {
   "resources/css/app.css": {
+<<<<<<< HEAD
     "file": "assets/app-CiON-app.css",
+=======
+    "file": "assets/app-30GzUKV2.css",
+>>>>>>> parent of d160eca (🔧 Trying to fix Tailwingcss Vite configuration 🔧)
     "src": "resources/css/app.css",
     "isEntry": true
   },

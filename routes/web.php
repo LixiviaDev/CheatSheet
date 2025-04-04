@@ -10,25 +10,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/assets/{asset}', function ($asset) {
-    $path = base_path() . '/public/build/assets/' . $asset;
+Route::get('/assets/css', function () {
+    $path = base_path() . '/public/build/assets/' . $_ENV["CSS_FILE"];
+
+    $mime = 'text/css';
     
-    // Recursive...
-    $files = Storage::files(base_path() . '/public/build/assets/');
+    return response()->file($path, [
+        'Content-Type' => $mime,
+        'Cache-Control' => 'max-age=31536000, public',
+    ]);
+});
 
-    $directories = Storage::allDirectories(base_path() . '/public');
+Route::get('/assets/js', function () {
+    $path = base_path() . '/public/build/assets/' . $_ENV["JS_FILE"];
 
-    dd([$path, $files, $directories, File::exists($path)]);
-
-    // if (!File::exists($path)) {
-    //     abort(404);
-    // }
-
-    $extension = Str::afterLast($asset, '.');
-
-    $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
-    
-    // dd($mime);
+    $mime = 'application/javascript';
     
     return response()->file($path, [
         'Content-Type' => $mime,

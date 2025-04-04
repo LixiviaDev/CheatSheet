@@ -17,6 +17,8 @@ Route::get('/assets/{asset}', function ($asset) {
     //     abort(404);
     // }
 
+    dd($path);
+
     $extension = Str::afterLast($asset, '.');
 
     $mime = $extension == 'css' ? 'text/css' : 'application/javascript';

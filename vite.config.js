@@ -10,9 +10,5 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    // css: {
-    //   postcss: {
-    //     plugins: [tailwindcss()],
-    //   },
-    // }
+    base: '/'
 });

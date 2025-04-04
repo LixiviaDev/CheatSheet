@@ -12,8 +12,9 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-        {{-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> --}}
+        {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+        <script type="module" src="{{ $_ENV["APP_URL"] . $_ENV["ASSETS_URL"] . $_ENV["ASSETS_JS"] }}"></script>
+        <link rel="stylesheet" href="{{ $_ENV["APP_URL"] . $_ENV["ASSETS_URL"] . $_ENV["ASSETS_CSS"] }}">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">

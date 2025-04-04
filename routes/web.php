@@ -25,12 +25,17 @@ Route::get('/assets/{asset}', function ($asset) {
 });
 
 Route::get('/build/assets/{asset}', function ($asset) {
-    $file = response()->file(base_path() . '/public/build/assets/' . $asset);
-    // $fileType = $file['extension'];
+    $path = base_path('/public/build/assets/' . $asset);
 
-    // dd($file);
+    if (!File::exists($path)) {
+        abort(404);
+    }
 
-    return response($file, 200)->header('Content-type', 'text/css');
+    $mime = File::mimeType($path);
+    return response()->file($path, [
+        'Content-Type' => $mime,
+        'Cache-Control' => 'max-age=31536000, public',
+    ]);
 });
 
 Route::get('/dashboard', function () {

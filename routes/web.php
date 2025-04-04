@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/assets/{asset}', function ($asset) {
-    $path = '/public/build/assets/' . $asset;
+    $path = base_path() . '/public/build/assets/' . $asset;
 
     // if (!File::exists($path)) {
     //     abort(404);

@@ -8,9 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/assets/{asset}', function ($asset) {
-    // dd([response()->file('/app/public/build/assets/' . $asset)]);
-
-    return response()->file('/app/api/build/assets/' . $asset);
+    return response()->file('/build/assets/' . $asset);
 });
 
 Route::get('/dashboard', function () {

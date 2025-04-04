@@ -17,7 +17,7 @@ Route::get('/assets/{asset}', function ($asset) {
     //     abort(404);
     // }
 
-    dd($path);
+    dd([$path, File::exists($path)]);
 
     $extension = Str::afterLast($asset, '.');
 

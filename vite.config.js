@@ -10,4 +10,9 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    // css: {
+    //   postcss: {
+    //     plugins: [tailwindcss()],
+    //   },
+    // }
 });

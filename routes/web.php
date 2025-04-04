@@ -19,7 +19,7 @@ Route::get('/assets/{asset}', function ($asset) {
 
     $extension = Str::afterLast($asset, '.');
 
-    $mime = extension == 'css' ? 'text/css' : 'application/javascript';
+    $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
     
     dd($mime);
     
@@ -38,7 +38,7 @@ Route::get('/build/assets/{asset}', function ($asset) {
 
     $extension = Str::afterLast($asset, '.');
 
-    $mime = extension == 'css' ? 'text/css' : 'application/javascript';
+    $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
     
     dd($mime);
 

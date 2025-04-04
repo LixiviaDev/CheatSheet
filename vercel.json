@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
     "framework": null,
   "functions": {
       "api/index.php": { "runtime": "vercel-php@0.7.3" }
@@ -23,5 +23,8 @@
       "CACHE_DRIVER": "array",
       "LOG_CHANNEL": "stderr",
       "SESSION_DRIVER": "cookie"
-  }
+  },
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "installCommand": "npm install || php artisan migrate"
 }

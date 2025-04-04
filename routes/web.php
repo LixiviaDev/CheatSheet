@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/assets/{asset}', function ($asset) {
+Route::get('/build/assets/{asset}', function ($asset) {
     return response()->file(base_path() . '/public/build/assets/' . $asset);
 });
 

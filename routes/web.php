@@ -12,12 +12,17 @@ Route::get('/', function () {
 
 Route::get('/assets/{asset}', function ($asset) {
     $path = base_path() . '/public/build/assets/' . $asset;
+    
+    // Recursive...
+    $files = Storage::files(base_path() . '/public/build/assets/');
+
+    $directories = Storage::allDirectories(base_path() . '/public');
+
+    dd([$path, $files, $directories, File::exists($path)]);
 
     // if (!File::exists($path)) {
     //     abort(404);
     // }
-
-    dd([$path, File::exists($path)]);
 
     $extension = Str::afterLast($asset, '.');
 

@@ -23,8 +23,5 @@
       "CACHE_DRIVER": "array",
       "LOG_CHANNEL": "stderr",
       "SESSION_DRIVER": "cookie"
-  },
-  "buildCommand": "npm run build",
-  "outputDirectory": ".",
-  "installCommand": "npm install || php artisan migrate"
+  }
 }

@@ -1,2 +1,9 @@
 @import "tailwindcss";
+<<<<<<< HEAD
 @source "../views";
+=======
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+>>>>>>> parent of 242a28d (🔧 Fixed tailwindcss plugin import 🔧)

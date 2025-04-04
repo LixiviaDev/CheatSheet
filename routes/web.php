@@ -29,24 +29,24 @@ Route::get('/assets/{asset}', function ($asset) {
     ]);
 });
 
-Route::get('/build/assets/{asset}', function ($asset) {
-    $path = base_path('/public/build/assets/' . $asset);
+// Route::get('/build/assets/{asset}', function ($asset) {
+//     $path = base_path('/public/build/assets/' . $asset);
 
-    if (!File::exists($path)) {
-        abort(404);
-    }
+//     if (!File::exists($path)) {
+//         abort(404);
+//     }
 
-    $extension = Str::afterLast($asset, '.');
+//     $extension = Str::afterLast($asset, '.');
 
-    $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
+//     $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
     
-    // dd($mime);
+//     // dd($mime);
 
-    return response()->file($path, [
-        'Content-Type' => $mime,
-        'Cache-Control' => 'max-age=31536000, public',
-    ]);
-});
+//     return response()->file($path, [
+//         'Content-Type' => $mime,
+//         'Cache-Control' => 'max-age=31536000, public',
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

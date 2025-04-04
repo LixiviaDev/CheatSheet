@@ -21,7 +21,7 @@ Route::get('/assets/{asset}', function ($asset) {
 
     $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
     
-    dd($mime);
+    // dd($mime);
     
     return response()->file($path, [
         'Content-Type' => $mime,
@@ -40,7 +40,7 @@ Route::get('/build/assets/{asset}', function ($asset) {
 
     $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
     
-    dd($mime);
+    // dd($mime);
 
     return response()->file($path, [
         'Content-Type' => $mime,

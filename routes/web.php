@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/build/assets/{asset}', function ($asset) {
-    return response()->file('/build/assets/{{$asset}}');
+    return response()->file('/build/assets/' . $asset);
 });
 
 Route::get('/dashboard', function () {

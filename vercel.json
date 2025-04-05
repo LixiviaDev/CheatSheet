@@ -12,6 +12,10 @@
         "dest": "/public/favicon/"
     },
     {
+      "src": "/assets",
+      "dest": "/api/public/build/assets/"
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.php"
     }

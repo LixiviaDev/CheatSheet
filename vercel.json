@@ -1,9 +1,5 @@
 {
   "version": 2,
-    "framework": "vite",
-    "buildCommand": "npm run build",
-    "outputDirectory": "api",
-    "installCommand": "npm install || php artisan migrate",
   "functions": {
       "api/index.php": { "runtime": "vercel-php@0.7.3" }
   },

@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/assets/css', function () {
-    $path = base_path() . '/public/build/assets/' . $_ENV["CSS_FILE"];
+    $path = '../public/build/assets/' . $_ENV["CSS_FILE"];
 
     $mime = 'text/css';
     

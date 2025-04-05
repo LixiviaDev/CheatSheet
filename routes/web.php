@@ -10,27 +10,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/assets/css', function () {
-    $path = '../public/build/assets/' . $_ENV["CSS_FILE"];
+// Route::get('/assets/css', function () {
+//     $path = '../public/build/assets/' . $_ENV["CSS_FILE"];
 
-    $mime = 'text/css';
+//     $mime = 'text/css';
     
-    return response()->file($path, [
-        'Content-Type' => $mime,
-        'Cache-Control' => 'max-age=31536000, public',
-    ]);
-});
+//     return response()->file($path, [
+//         'Content-Type' => $mime,
+//         'Cache-Control' => 'max-age=31536000, public',
+//     ]);
+// });
 
-Route::get('/assets/js', function () {
-    $path = base_path() . '/public/build/assets/' . $_ENV["JS_FILE"];
+// Route::get('/assets/js', function () {
+//     $path = base_path() . '/public/build/assets/' . $_ENV["JS_FILE"];
 
-    $mime = 'application/javascript';
+//     $mime = 'application/javascript';
     
-    return response()->file($path, [
-        'Content-Type' => $mime,
-        'Cache-Control' => 'max-age=31536000, public',
-    ]);
-});
+//     return response()->file($path, [
+//         'Content-Type' => $mime,
+//         'Cache-Control' => 'max-age=31536000, public',
+//     ]);
+// });
 
 // Route::get('/build/assets/{asset}', function ($asset) {
 //     $path = base_path('/public/build/assets/' . $asset);

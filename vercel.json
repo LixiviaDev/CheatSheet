@@ -1,7 +1,8 @@
 {
   "version": 2,
   "functions": {
-      "api/index.php": { "runtime": "vercel-php@0.7.3" }
+      "api/index.php": { "runtime": "vercel-php@0.7.3" },
+      "/api/public/**/*" : {}
   },
   "routes": [{
         "src": "/resources/(.*)",
@@ -13,7 +14,7 @@
     },
     {
       "src": "/assets",
-      "dest": "/api/public/build/assets/"
+      "dest": "/api/public/**/*"
     },
     {
       "src": "/(.*)",

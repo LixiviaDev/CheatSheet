@@ -6,8 +6,14 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
+use App\Models\offer;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
+});
+
+Route::get('/debug', function () {
+    return view('debug/debug');
 });
 
 // Route::get('/assets/css', function () {

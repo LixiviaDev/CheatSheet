@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <x-offerBanners />
+        <x-productList />
     </div>
 </body>
 </html>

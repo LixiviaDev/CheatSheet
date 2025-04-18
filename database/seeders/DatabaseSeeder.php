@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->create();
 
         $this->call(OfferSeeder::class);
+        $this->call(ProductSeeder::class);
     }
 }

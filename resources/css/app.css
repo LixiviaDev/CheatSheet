@@ -3,9 +3,11 @@
 @theme {
     /* c0cc62-916e53-9c6565-f7c545-d4a373 */
     /* faf3a7-e0913d-331b03-f7c545-c0cc62 */
-    --color-light: #faf3a7;
-    --color-gray: #e0913d;
-    --color-dark: #331b03;
+    --color-not-white: #fffef3;
+    --color-not-black: #331b03;
+
+    --color-light: hsl(45 89% 88% / 1); /*#faf3a7; /* #faf3a7 */
+    --color-gray: #e0913d; /* #e0913d */
     --color-base: #f7c545;
     --color-accent: #c0cc62;
 }

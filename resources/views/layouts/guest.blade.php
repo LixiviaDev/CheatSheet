@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         {{-- <script type="module" src="{{ $_ENV["APP_URL"] . $_ENV["ASSETS_URL"] . $_ENV["ASSETS_JS"] }}"></script>
         <link rel="stylesheet" href="{{ $_ENV["APP_URL"] . $_ENV["ASSETS_URL"] . $_ENV["ASSETS_CSS"] }}"> --}}
     </head>

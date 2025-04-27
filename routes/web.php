@@ -6,15 +6,40 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
-use App\Models\offer;
+use App\Models\Offer;
+use App\Models\CartItem;
 
-Route::get('/', function () {
-    return view('landing');
-});
+Route::view('/', 'landing');
 
-Route::get('/debug', function () {
-    return view('debug/debug');
-});
+Route::view('/debug', 'debug/debug');
+
+Route::view('/cart', 'cart')->name('cart');
+
+Route::post('/cart', function() {
+    CartItem::AddToCart(Auth::user()->id, request()->product_id, request()->quantity);
+
+    return to_route('cart');
+    })
+    ->middleware('auth');
+    // ->name('Add to cart');
+
+Route::view('/brand/{id}', 'brand', ['id' => 'id'])
+    ->name('brand');
+
+Route::view('/offer/{id}', 'offer', ['id' => 'id'])
+    ->name('offer');
+
+Route::view('/offer/{id}/{CRUD}', 'offerCRUD', ['CRUD' => 'CRUD'])
+    ->name('offerCRUD')
+    ->middleware(['auth', 'admin']);
+
+Route::view('/product/{id}', 'productInfo', ['id' => 'id'])
+    ->name('product');
+
+Route::view('/product/{id}/{CRUD}', 'productCRUD', ['id' => 'id', 'CRUD' => 'CRUD'])
+    ->name('productCRUD')
+    ->middleware(['auth', 'admin']);
+
 
 // Route::get('/assets/css', function () {
 //     $path = '../public/build/assets/' . $_ENV["CSS_FILE"];
@@ -57,9 +82,9 @@ Route::get('/debug', function () {
 //     ]);
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::view('/dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

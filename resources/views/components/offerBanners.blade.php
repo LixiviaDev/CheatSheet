@@ -1,5 +1,5 @@
 <?php 
-    use App\Models\offer;
+    use App\Models\Offer;
 
     $offers = offer::all();
 ?>

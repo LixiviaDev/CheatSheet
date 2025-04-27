@@ -1,5 +1,5 @@
 <div class="flex flex-col w-full border-1 border-solid text-gray">
-    <a href="/item/{{ $product->id }}">
+    <a href="/product/{{ $product->id }}">
         <div class="relative bg-light">
             <img src="data:image/png;base64,{{ $product->imageBase64 }}" alt="image of {{ $product->name }}">
             <div class="absolute bottom-0 right-0 px-5 py-3 flex flex-col justify-center items-center text-white bg-red-600">
@@ -16,7 +16,10 @@
                 <div class="text-gray text-sm font-bold">{{ $product->brand }}</div>
                 <div class="font-bold">{{ $product->name }}</div>
             </div>
-            <form action="/cart/add/{{ $product->id }}">
+            <form  method="post" action="/cart">
+                @csrf
+                <input type="number" name="product_id" id="product_id_hidden" hidden value="{{ $product->id }}">
+                <input type="number" name="quantity" id="quantity_hidden" hidden value="{{ $product->id }}">
                 <button type="submit" class="w-full p-2 font-bold bg-gray text-not-black hover:cursor-pointer hover:bg-not-black hover:text-gray">
                     Añadir al carrito
                 </button>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreofferRequest;
-use App\Http\Requests\UpdateofferRequest;
-use App\Models\Offer;
+use App\Http\Requests\StoreCartItemRequest;
+use App\Http\Requests\UpdateCartItemRequest;
+use App\Models\CartItem;
 
-class OfferController extends Controller
+class CartItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class OfferController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreofferRequest $request)
+    public function store(StoreCartItemRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class OfferController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(offer $offer)
+    public function show(CartItem $cartItem)
     {
         //
     }
@@ -43,7 +43,7 @@ class OfferController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(offer $offer)
+    public function edit(CartItem $cartItem)
     {
         //
     }
@@ -51,7 +51,7 @@ class OfferController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateofferRequest $request, offer $offer)
+    public function update(UpdateCartItemRequest $request, CartItem $cartItem)
     {
         //
     }
@@ -59,7 +59,7 @@ class OfferController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(offer $offer)
+    public function destroy(CartItem $cartItem)
     {
         //
     }

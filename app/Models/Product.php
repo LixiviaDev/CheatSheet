@@ -13,4 +13,6 @@ class Product extends Model
     public function price() {
         return floor($this->pricePerKilo * $this->quantity * 100) / 100;
     }
+
+    
 }

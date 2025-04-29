@@ -5,14 +5,26 @@
 ?>
 
 <x-app-layout>
-    <div>
-        @if (Auth::user()?->isAdmin)
-            <form method="get" action="/product/{{ $id }}/edit">
-                <button type="submit" class="w-full p-2 font-bold bg-gray text-not-black hover:cursor-pointer hover:bg-not-black hover:text-gray">
-                    Editar
-                </button>
-            </form>
-        @endif
+    <div class="flex flex-col gap-3">
+        <div class="flex justify-end gap-3">
+            @if (Auth::user()?->isAdmin)
+                <form method="get" action="/product/{{ $id }}/edit">
+                    <x-button :type="'submit'">
+                        Editar
+                    </x-button>
+                </form>
+            @endif
+            
+            @if (Auth::user()?->isAdmin)
+                <form method="POST" action="/product/{{ $id }}">
+                    @csrf
+                    @method('DELETE')
+                    <x-button :type="'submit'" :style="'danger'">
+                        Borrar
+                    </x-button>
+                </form>
+            @endif
+        </div>
         <x-itemCard :product="$product"/>
     </div>
 </x-app-layout>

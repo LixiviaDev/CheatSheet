@@ -15,9 +15,8 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && auth()->user()->isAdmin == true) {
+        if (auth()->user()?->isAdmin)
             return $next($request);
-        }
     
         abort(403, 'Acceso denegado.');
     }

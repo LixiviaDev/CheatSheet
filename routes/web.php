@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\File;
 
 use App\Models\Offer;
 use App\Models\CartItem;
+use App\Models\Product;
 
-Route::view('/', 'landing');
+Route::view('/', 'landing')
+    ->name('home');
 
 Route::view('/debug', 'debug/debug');
 
@@ -36,8 +38,60 @@ Route::view('/offer/{id}/{CRUD}', 'offerCRUD', ['CRUD' => 'CRUD'])
 Route::view('/product/{id}', 'productInfo', ['id' => 'id'])
     ->name('product');
 
-Route::view('/product/{id}/{CRUD}', 'productCRUD', ['id' => 'id', 'CRUD' => 'CRUD'])
+Route::view('/product/{id}/edit', 'productCRUD', ['id' => 'id'])
     ->name('productCRUD')
+    ->middleware(['auth', 'admin']);
+
+Route::put('/product', function() {
+        // dd(request());
+
+        $product = new Product();
+
+        $product->name = request('name');
+        $product->brand = request('brand');
+        $product->pricePerKilo = request('pricePerKilo');
+        $product->quantity = request('quantity');
+        $product->imageBase64 = base64_encode(file_get_contents(request()->file('imageBase64')->path()));
+
+        // dd($product);
+
+        $product->save();
+
+        return redirect()->route('product', [ 'id' => $product->id ?? -1]);
+    })
+    ->name('productCreate')
+    ->middleware(['auth', 'admin']);
+
+Route::patch('/product/{id}', function($id) {
+        $product = Product::find($id);
+
+        // dd($product);
+
+        $product->name = request('name');
+        $product->brand = request('brand');
+        $product->pricePerKilo = request('pricePerKilo');
+        $product->quantity = request('quantity');
+        $product->imageBase64 = request('imageBase64') ?? request('oldImageBase64');
+
+        // dd($product);
+
+        $product->save();
+
+        return redirect()->route('product', [ 'id' => $product->id ]);
+    })
+    ->name('productUpdate')
+    ->middleware(['auth', 'admin']);
+
+Route::delete('/product/{id}', function($id) {
+        $product = Product::find($id);
+
+        // dd($product);
+
+        $product?->delete();
+
+        return redirect()->route('home');
+    })
+    ->name('productDelete')
     ->middleware(['auth', 'admin']);
 
 

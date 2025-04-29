@@ -32,7 +32,9 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="p-3 md:p-6 flex flex-col gap-5 r">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
     </body>

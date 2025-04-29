@@ -2,7 +2,7 @@
     <a href="/product/{{ $product->id }}">
         <div class="relative bg-light">
             <img src="data:image/png;base64,{{ $product->imageBase64 }}" alt="image of {{ $product->name }}">
-            <div class="absolute bottom-0 right-0 px-5 py-3 flex flex-col justify-center items-center text-white bg-fanger">
+            <div class="absolute bottom-0 right-0 px-5 py-3 flex flex-col justify-center items-center text-white bg-danger">
                 {{-- <div class="text-sm font-bold line-through">{{ $oldPrice }} €</div> --}}
                 <div class="font-bold">{{ $product->price() }} €</div>
             </div>
@@ -18,6 +18,7 @@
             </div>
             <form  method="post" action="/cart">
                 @csrf
+                @method('PUT')
                 <input type="number" name="product_id" id="product_id_hidden" hidden value="{{ $product->id }}">
                 <input type="number" name="quantity" id="quantity_hidden" hidden value="{{ $product->id }}">
                 <button type="submit" class="w-full p-2 font-bold bg-gray text-not-black hover:cursor-pointer hover:bg-not-black hover:text-gray">

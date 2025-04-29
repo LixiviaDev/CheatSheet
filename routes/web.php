@@ -17,12 +17,23 @@ Route::view('/debug', 'debug/debug');
 
 Route::view('/cart', 'cart')->name('cart');
 
-Route::post('/cart', function() {
-    CartItem::AddToCart(Auth::user()->id, request()->product_id, request()->quantity);
+// Route::view('/cart', function() {
+//     ->name('offerCRUD')
+//     ->middleware(['auth', 'admin']);
+
+Route::put('/cart', function() {
+    $cartItem = new CartItem();
+
+    $cartItem->user_id = Auth::user()->id;
+    $cartItem->product_id = request()->product_id;
+    $cartItem->quantity = request()->quantity;
+
+    $cartItem->save();
 
     return to_route('cart');
     })
-    ->middleware('auth');
+    ->name('offerCreate')
+    ->middleware(['auth', 'admin']);
     // ->name('Add to cart');
 
 Route::view('/brand/{id}', 'brand', ['id' => 'id'])
@@ -31,8 +42,52 @@ Route::view('/brand/{id}', 'brand', ['id' => 'id'])
 Route::view('/offer/{id}', 'offer', ['id' => 'id'])
     ->name('offer');
 
-Route::view('/offer/{id}/{CRUD}', 'offerCRUD', ['CRUD' => 'CRUD'])
+Route::view('/offer/{id}/edit', 'offerCRUD', ['id' => 'id'])
     ->name('offerCRUD')
+    ->middleware(['auth', 'admin']);
+
+Route::put('/offer', function() {
+        // dd(request());
+
+        $offer = new Offer();
+
+        $offer->bannerBase64 = base64_encode(file_get_contents(request()->file('bannerBase64')->path()));
+
+        // dd($offer);
+
+        $offer->save();
+
+        return redirect()->route('offer', [ 'id' => $offer->id ?? -1]);
+    })
+    ->name('offerCreate')
+    ->middleware(['auth', 'admin']);
+
+Route::patch('/offer/{id}', function($id) {
+        $offer = Offer::find($id);
+
+        // dd($offer);
+
+        $offer->bannerBase64 = request('bannerBase64') ?? request('oldBannerBase64');
+
+        // dd($offer);
+
+        $offer->save();
+
+        return redirect()->route('offer', [ 'id' => $offer->id ]);
+    })
+    ->name('offerUpdate')
+    ->middleware(['auth', 'admin']);
+
+Route::delete('/offer/{id}', function($id) {
+        $offer = Offer::find($id);
+
+        // dd($offer);
+
+        $offer?->delete();
+
+        return redirect()->route('home');
+    })
+    ->name('offerDelete')
     ->middleware(['auth', 'admin']);
 
 Route::view('/product/{id}', 'productInfo', ['id' => 'id'])

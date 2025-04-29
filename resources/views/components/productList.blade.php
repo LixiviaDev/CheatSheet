@@ -15,6 +15,7 @@
         </form>
     @endcan
 </div>
+
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
     @foreach ($products as $product)
         {{-- <div class="w-[33%] max-w-65 p-3"> --}}

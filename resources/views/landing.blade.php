@@ -1,4 +1,9 @@
+<?php
+    use Resources\Views\Components\Offer\ShortList;
+    use Resources\Views\Components\Product\List;
+?>
+
 <x-app-layout>
-    <x-offerBanners />
-    <x-productList />
+    <x-offer.shortList />
+    <x-product.list />
 </x-app-layout>

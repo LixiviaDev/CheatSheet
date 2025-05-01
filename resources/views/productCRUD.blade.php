@@ -1,8 +1,10 @@
 <?php 
     use App\Models\Product;
-    use Resources\Views\Components\inputText;
-    use Resources\Views\Components\inputNumber;
-    use Resources\Views\Components\inputFile;
+
+    use Resources\Views\Components\Input\text;
+    use Resources\Views\Components\Input\number;
+    use Resources\Views\Components\Input\file;
+    use Resources\Views\Components\Button\Submit;
 
     $newProduct = !($id >= 0);
     
@@ -20,26 +22,26 @@
           @csrf
           @method( $newProduct ? 'PUT' : 'PATCH')
         
-          <x-inputText :title="'Nombre'" :columnName="'name'" :currentValue="$product?->name" />
+          <x-input.text :title="'Nombre'" :columnName="'name'" :currentValue="$product?->name" />
 
-          <x-inputText :title="'Marca'" :columnName="'brand'" :currentValue="$product?->brand" />
+          <x-input.text :title="'Marca'" :columnName="'brand'" :currentValue="$product?->brand" />
         
-          <x-inputNumber :title="'Precio por Kilo'" :columnName="'pricePerKilo'" :currentValue="$product?->pricePerKilo" />
+          <x-input.number :title="'Precio por Kilo'" :columnName="'pricePerKilo'" :currentValue="$product?->pricePerKilo" />
 
-          <x-inputNumber :title="'Cantidad (kg)'" :columnName="'quantity'" :currentValue="$product?->quantity" />
+          <x-input.number :title="'Cantidad (kg)'" :columnName="'quantity'" :currentValue="$product?->quantity" />
         
-          <x-inputText :isHidden="true" :title="'oldImageBase64'" :columnName="'oldImageBase64'" :currentValue="$product?->imageBase64" />
+          <x-input.text :isHidden="true" :title="'oldImageBase64'" :columnName="'oldImageBase64'" :currentValue="$product?->imageBase64" />
         
-          <x-inputFile :title="'Imagen'" :columnName="'imageBase64'" :fileTypes="'image/*'" />
+          <x-input.file :title="'Imagen'" :columnName="'imageBase64'" :fileTypes="'image/*'" />
         
           <div class="flex justify-end">
-            <x-button :type="'submit'">
+            <x-button.submit>
               @if ($newProduct)
                 Añadir                  
               @else
                 Guardar Cambios
               @endif
-            </x-button>
+            </x-button.submit>
           </div>
         </form>
   </div>

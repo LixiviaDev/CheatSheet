@@ -1,6 +1,8 @@
 <?php 
     use App\Models\Product;
 
+    use Resources\Views\Components\Product\Card;
+
     $products = Auth::user()->cartItems;
     // $products = Auth::user()->paginate(8)->cartItems;
 ?>
@@ -14,7 +16,7 @@
             @foreach ($products as $product)
                 {{-- <div class="w-[33%] max-w-65 p-3"> --}}
                 <div>
-                    <x-itemCard :product="$product->product"/>
+                    <x-product.itemCard :product="$product->product"/>
                 </div>
             @endforeach
         </div>

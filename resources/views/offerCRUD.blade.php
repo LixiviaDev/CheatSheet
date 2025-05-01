@@ -1,7 +1,8 @@
 <?php 
     use App\Models\Offer;
-    use Resources\Views\Components\inputText;
-    use Resources\Views\Components\inputFile;
+    // use Resources\Views\Components\Input\Text;
+    // use Resources\Views\Components\Input\File;
+    // use Resources\Views\Components\Button\Submit;
 
     $newOffer = !($id >= 0);
     
@@ -27,18 +28,18 @@
 
           <x-inputNumber :title="'Cantidad (kg)'" :columnName="'quantity'" :currentValue="$offer?->quantity" /> --}}
         
-          <x-inputText :isHidden="true" :title="'oldBannerBase64'" :columnName="'oldBannerBase64'" :currentValue="$offer?->bannerBase64" />
+          <x-input.text :isHidden="true" :title="'oldBannerBase64'" :columnName="'oldBannerBase64'" :currentValue="$offer?->bannerBase64" />
         
-          <x-inputFile :title="'Imagen'" :columnName="'bannerBase64'" :fileTypes="'image/*'" />
+          <x-input.file :title="'Imagen'" :columnName="'bannerBase64'" :fileTypes="'image/*'" />
         
           <div class="flex justify-end">
-            <x-button :type="'submit'">
+            <x-button.submit>
               @if ($newOffer)
                 Añadir                  
               @else
                 Guardar Cambios
               @endif
-            </x-button>
+            </x-button.submit>
           </div>
         </form>
   </div>

@@ -1,3 +1,11 @@
+<?php
+    use Illuminate\Support\Facades\Auth;
+
+    // use Resources\Views\Components\Button\responsiveNavLink;
+    // use Resources\Views\Components\Menu\Dropdown;
+    // use Resources\Views\Components\Menu\DropdownLink;
+?>
+
 <nav x-data="{ open: false }" class="{{ $class }} min-w-screen bg-gray ">
     <!-- Primary Navigation Menu -->
     <div class="shadow-sm shadow-not-black">
@@ -13,7 +21,7 @@
                     </button>
                 </div>
    
-                <div class="flex">
+                {{-- <div class="flex">
                     <div class="flex">
                         <!-- Logo -->
                         <div class="shrink-0 flex items-center">
@@ -23,12 +31,12 @@
                         </div>
                     </div>
                     <x-search-bar :class="'hidden md:block'" />
-                </div>
+                </div> --}}
     
                 <!-- Settings Dropdown -->
                 {{-- <div class="hidden sm:flex sm:items-center sm:ms-6"> --}}
                 <div class="flex items-center ms-6">
-                    <x-dropdown align="right" width="48">
+                    <x-menu.dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center p-3 border border-transparent text-sm leading-4 font-medium rounded-md focus:outline-none hover:cursor-pointer border-2 border-transparent hover:border-not-black transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name ?? "guest" }}</div>
@@ -42,36 +50,36 @@
                         </x-slot>
     
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
+                            <x-menu.dropdownLink :href="route('profile.edit')">
                                 {{ __('Profile') }}
-                            </x-dropdown-link>
+                            </x-menu.dropdownLink>
     
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
     
-                                <x-dropdown-link :href="route('logout')"
+                                <x-menu.dropdownLink :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                     {{ __('Log Out') }}
-                                </x-dropdown-link>
+                                </x-menu.dropdownLink>
                             </form>
                         </x-slot>
-                    </x-dropdown>
+                    </x-menu.dropdown>
                 </div>
             </div>
         </div>
 
-        <x-search-bar :class="'block md:hidden'" />
+        <x-nav.search-bar :class="'block md:hidden'" />
     </div>
 
 
     <!-- Responsive Navigation Menu -->
     <div :class="open ? 'right-0': 'right-[100%]'" class="fixed z-[-1] min-h-screen min-w-screen block bg-not-white border-b border-not-black transition-[right] duration-150 ease-in-out">
         <div class="space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-button.responsiveNavLink :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            </x-button.responsiveNavLink>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -82,19 +90,19 @@
             </div>
 
             <div>
-                <x-responsive-nav-link :href="route('profile.edit')">
+                <x-button.responsiveNavLink :href="route('profile.edit')">
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
+                </x-button.responsiveNavLink>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-button.responsiveNavLink :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    </x-button.responsiveNavLink>
                 </form>
             </div>
         </div>

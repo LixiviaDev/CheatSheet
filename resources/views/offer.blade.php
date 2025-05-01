@@ -1,6 +1,9 @@
 <?php 
     use App\Models\Offer;
 
+    use Resources\View\Components\Button\Submit;
+    use Resources\View\Components\Offer\shortList;
+
     $offer = Offer::find($id);
     // $products = Auth::user()->paginate(8)->cartItems;
 ?>
@@ -11,9 +14,9 @@
         <div class="flex justify-end gap-3">
             @if (Auth::user()?->isAdmin)
                 <form method="get" action="{{ route('offerCRUD', [ 'id' => -1 ]) }}">
-                    <x-button :type="'submit'">
+                    <x-button.submit>
                         Editar
-                    </x-button>
+                    </x-button.submit>
                 </form>
             @endif
             
@@ -21,14 +24,14 @@
                 <form method="POST" action="{{ route('offerDelete', [ 'id' => $offer->id ]) }}">
                     @csrf
                     @method('DELETE')
-                    <x-button :type="'submit'" :style="'danger'">
+                    <x-button.submit :style="'danger'">
                         Borrar
-                    </x-button>
+                    </x-button.submit>
                 </form>
                 @endif
             </div>
             
-            <x-offerBanners />
+            <x-offer.shortList />
     
             {{ $offer->bannerBase64 }}
     </div>

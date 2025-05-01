@@ -20,6 +20,6 @@
     }
 ?>
 
-<button type="{{ $type ?? 'button'}}" class="{{ $css }}">
+<button type="submit" class="{{ $css }}">
     {{ $slot}}
 </button>

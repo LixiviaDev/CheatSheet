@@ -1,3 +1,7 @@
+<?php 
+    use Resources\Views\Components\Button\AddToCart;
+?>
+
 <div class="flex flex-col w-full border-1 border-solid text-gray">
     <a href="/product/{{ $product->id }}">
         <div class="relative bg-light">
@@ -16,15 +20,8 @@
                 <div class="text-gray text-sm font-bold">{{ $product->brand }}</div>
                 <div class="font-bold">{{ $product->name }}</div>
             </div>
-            <form  method="post" action="/cart">
-                @csrf
-                @method('PUT')
-                <input type="number" name="product_id" id="product_id_hidden" hidden value="{{ $product->id }}">
-                <input type="number" name="quantity" id="quantity_hidden" hidden value="{{ $product->id }}">
-                <button type="submit" class="w-full p-2 font-bold bg-gray text-not-black hover:cursor-pointer hover:bg-not-black hover:text-gray">
-                    Añadir al carrito
-                </button>
-            </form>
+
+            <x-button.addToCart :product="$product"/>
         </div>
     </a>
 </div>

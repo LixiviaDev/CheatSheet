@@ -1,7 +1,6 @@
-<div>
-    <!-- Breathing in, I calm body and mind. Breathing out, I smile. - Thich Nhat Hanh -->
-</div>{{-- 
+{{-- 
 Expected arguments:
+- :type         | string    | mandatory |       | Type of the field
 - :title        | string    | mandatory |       | Title of the field
 - :columnName   | string    | mandatory |       | Name of the column in the database
 - :currentValue | string    | optional  | ''    | Current value in the database
@@ -12,23 +11,14 @@ Expected arguments:
 - :isHidden     | bool      | optional  | false | Is input hidden?
 --}}
 
-<?php
-$columnName = $columnName ?? '';
-$currentValue = $currentValue ?? '';
-$autocomplete = $autocomplete ?? '';
-
-$required = ($isRequired ?? false) ? 'required' : '';
-$autofocus = ($isAutoFocus ?? false) ? 'autofocus' : '';
-$readonly = ($isReadonly ?? false) ? 'readonly' : '';
-$hidden = ($isHidden ?? false) ? 'hidden' : '';
-
-$css = "mt-1 block w-full border-light shadow-sm focus:ring-not-black focus:border-not-black";
-?>
-
-{{$title}}
-{{$columnName}}
-{{-- <div class="{{ $hidden }}">
-<label for="{{ $columnName ?? '' }}" class="block text-sm font-medium text-not-black">{{ $title }}</label>
-<input {{ $required }} {{ $autofocus }} {{ $readonly }} type="email" id="{{ $columnName ?? '' }}" name="{{ $columnName ?? '' }}" value="{{ old($columnName, $currentValue) }}" autocomplete="{{ $autocomplete }}"
-      class="{{ $css }}">
-</div> --}}
+<x-input 
+    :type="'email'"
+    :title="$title"
+    :columnName="$columnName"
+    :currentValue="$currentValue ?? ''"
+    :autocomplete="$autocomplete ?? ''"
+    :isRequired="$isRequired ?? false"
+    :isAutoFocus="$isAutoFocus ?? false"
+    :isReadonly="$isReadonly ?? false"
+    :isHidden="$isHidden ?? false"
+/>

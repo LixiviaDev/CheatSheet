@@ -15,10 +15,10 @@
 ?>
 
 <x-app-layout>
-  <div>
+    <x-layout.form>
       @csrf
 
-      <form action="{{ $newProduct ? route('productCreate') : route('productUpdate', [ 'id' => $product->id ]) }}" method="POST" enctype="multipart/form-data" class="max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-md space-y-6">
+      <form action="{{ $newProduct ? route('productCreate') : route('productUpdate', [ 'id' => $product->id ]) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
           @csrf
           @method( $newProduct ? 'PUT' : 'PATCH')
         
@@ -44,5 +44,5 @@
             </x-button.submit>
           </div>
         </form>
-  </div>
-</x-app-layout>
+</x-layout.form>
+  </x-app-layout>

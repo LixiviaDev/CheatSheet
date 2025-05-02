@@ -17,7 +17,7 @@
 
 
     @if(Auth::user()?->isAdmin)
-        <form method="get" action="{{ route('offerCreate', [ 'id' => -1 ]) }}">
+        <form method="get" action="{{ route('offerCRUD', [ 'id' => -1 ]) }}">
             <x-button.submit>
                 + Crear
             </x-button.submit>

@@ -13,6 +13,9 @@
         case 'danger':
             $css = 'bg-danger border-transparent border-2 text-not-white hover:cursor-pointer hover:bg-not-white hover:text-danger hover:border-danger';
             break;
+        case 'simple-small':
+            $css = 'w-full p-2 font-bold text-sm border-transparent border-2 text-gray hover:cursor-pointer';
+            break;
         case 'simple':
             $css = 'w-full p-2 font-bold border-transparent border-2 text-gray hover:cursor-pointer';
             break;

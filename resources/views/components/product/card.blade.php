@@ -20,8 +20,8 @@
                 <div class="text-gray text-sm font-bold">{{ $product->brand }}</div>
                 <div class="font-bold">{{ $product->name }}</div>
             </div>
+        </a>
 
             <x-button.addToCart :product="$product"/>
         </div>
-    </a>
 </div>

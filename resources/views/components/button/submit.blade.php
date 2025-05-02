@@ -1,5 +1,6 @@
 {{-- 
     Expected arguments:
+    - :id   | string | optional | ID of the button
     - :type | string | optional | Button type attribute
         · button
         · submit
@@ -9,17 +10,6 @@
         · danger
 --}}
 
-<?php
-    switch ($style ?? '') {
-        case 'danger':
-            $css = 'w-full p-2 font-bold bg-danger border-transparent border-2 text-not-white hover:cursor-pointer hover:bg-not-white hover:text-danger hover:border-danger';
-            break;
-        default:
-            $css = 'w-full p-2 font-bold bg-gray border-transparent border-2 text-not-black hover:cursor-pointer hover:bg-not-black hover:text-gray';
-            break;
-    }
-?>
-
-<button type="submit" class="{{ $css }}">
-    {{ $slot}}
-</button>
+<x-button :type="'submit'" class="{{ $css ?? 'default' }}" :id="$id ?? null">
+    {{ $slot }}
+</x-button>

@@ -12,7 +12,7 @@ Expected arguments:
 --}}
 
 <x-input 
-    :type="'number'"
+    :type="'password'"
     :title="$title"
     :columnName="$columnName"
     :currentValue="$currentValue ?? ''"

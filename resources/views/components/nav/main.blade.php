@@ -34,7 +34,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-button.dropdownLink :href="route('profile.edit')">
+                            <x-button.dropdownLink :href="route('profile')">
                                 {{ __('Profile') }}
                             </x-button.dropdownLink>
 
@@ -72,20 +72,43 @@
             </div> --}}
 
             <div>
-                <x-button.hamburgerLink :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                @if (Auth::check())
+                    <x-button.hamburgerLink :href="route('profile')">
+                        {{ __('Profile') }}
+                    </x-button.hamburgerLink>
+
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        @method('POST')
+
+                        <x-button.hamburgerLink :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-button.hamburgerLink>
+                    </form>
+                @else
+                    <!-- Authentication -->
+                    <form method="GET" action="{{ route('login') }}">
+                        @csrf
+                        @method('GET')
+
+                        <x-button.hamburgerLink :href="route('login')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log In') }}
+                        </x-button.hamburgerLink>
+                    </form>
+                @endif
+                
+                <x-button.hamburgerLink :href="route('home')">
+                    {{ __('Home') }}
                 </x-button.hamburgerLink>
 
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-button.hamburgerLink :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-button.hamburgerLink>
-                </form>
+                <x-button.hamburgerLink :href="route('cart')">
+                    {{ __('Cart') }}
+                </x-button.hamburgerLink>
             </div>
         </div>
     </x-menu.hamburger>

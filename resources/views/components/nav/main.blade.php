@@ -34,19 +34,19 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-menu.dropdown.link :href="route('profile.edit')">
+                            <x-button.dropdownLink :href="route('profile.edit')">
                                 {{ __('Profile') }}
-                            </x-menu.dropdown.link>
+                            </x-button.dropdownLink>
 
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-menu.dropdown.link :href="route('logout')"
+                                <x-button.dropdownLink :href="route('logout')"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
                                     {{ __('Log Out') }}
-                                </x-menu.dropdown.link>
+                                </x-button.dropdownLink>
                             </form>
                         </x-slot>
                     </x-menu.dropdown>
@@ -58,33 +58,33 @@
     </div>
 
     <x-menu.hamburger open="open">
-        <div class="space-y-1">
+        {{-- <div class="space-y-1">
             <x-button.responsiveNavLink :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-button.responsiveNavLink>
-        </div>
+        </div> --}}
 
         <!-- Responsive Settings Options -->
         <div class="border-t border-not-black">
-            <div class="px-4">
+            {{-- <div class="px-4">
                 <div class="font-medium text-base text-not-black">{{ Auth::user()->name ?? "guest" }}</div>
                 <div class="font-medium text-sm text-not-dark">{{ Auth::user()->email ?? "email" }}</div>
-            </div>
+            </div> --}}
 
             <div>
-                <x-button.responsiveNavLink :href="route('profile.edit')">
+                <x-button.hamburgerLink :href="route('profile.edit')">
                     {{ __('Profile') }}
-                </x-button.responsiveNavLink>
+                </x-button.hamburgerLink>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-button.responsiveNavLink :href="route('logout')"
+                    <x-button.hamburgerLink :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
-                    </x-button.responsiveNavLink>
+                    </x-button.hamburgerLink>
                 </form>
             </div>
         </div>

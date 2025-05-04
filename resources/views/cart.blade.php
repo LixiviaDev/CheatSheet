@@ -18,6 +18,17 @@
             <div class="col-span-4 md:col-span-1">
                 info del usuario
             </div>
+            <div class="col-span-4 md:col-span-1 block md:hidden">
+                <div class="flex p-5 border-0 bg-gray text-not-dark items-center gap-2 font-bold">
+                    <div>
+                        {{ __('Total') }}
+                    </div>
+                    <div class="border-b-2 border-not-black border-dotted grow h-[1rem]"></div>
+                    <div class="bg-light p-3 font-bold text-lg">
+                        {{ $totalPrice }} €
+                    </div>
+                </div>
+            </div>
             <div class="col-span-4 md:col-span-2 flex flex-col gap-2">
                 @foreach ($cartItems as $cartItem)
                     <div>
@@ -25,7 +36,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="col-span-4 md:col-span-1">
+            <div class="col-span-4 md:col-span-1 hidden md:block">
                 <div class="flex p-5 border-0 bg-gray text-not-dark items-center gap-2 font-bold">
                     <div>
                         {{ __('Total') }}

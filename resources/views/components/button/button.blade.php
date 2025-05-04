@@ -26,6 +26,6 @@
     }
 ?>
 
-<button type="{{ $type }}" class="{{ $css }}" {{ $id ? "id=$id" : '' }}>
+<button type="{{ $type }}" class="{{ $css }}" {{ $id ? "id=$id" : '' }} {{ $attributes }}>
     {{ $slot }}
 </button>

@@ -10,6 +10,6 @@
         · danger
 --}}
 
-<x-button :type="'submit'" class="{{ $css ?? 'default' }}" :id="$id ?? null">
+<x-button :type="'submit'" :style="$style ?? ''" :id="$id ?? null">
     {{ $slot }}
 </x-button>

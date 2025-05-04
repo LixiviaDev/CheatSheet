@@ -1,11 +1,12 @@
 <?php 
+    use App\UserCart;
     use App\Models\Product;
 
     use Resources\Views\Components\Product\Card;
 
-    $cartItems = Auth::user()->cartItems;
-
-    // dd($cartItems);
+    $userCart = new UserCart(Auth::user());
+    $cartItems = $userCart->cartItems;
+    $totalPrice = $userCart->cartItemsTotalPrice();
 ?>
 
 <x-app-layout>
@@ -25,7 +26,15 @@
                 @endforeach
             </div>
             <div class="col-span-4 md:col-span-1">
-                factura
+                <div class="flex p-5 border-0 bg-gray text-not-dark items-center gap-2 font-bold">
+                    <div>
+                        {{ __('Total') }}
+                    </div>
+                    <div class="border-b-2 border-not-black border-dotted grow h-[1rem]"></div>
+                    <div class="bg-light p-3 font-bold text-lg">
+                        {{ $totalPrice }} €
+                    </div>
+                </div>
             </div>
         </div>
     </div>

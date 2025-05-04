@@ -15,7 +15,9 @@ Route::view('/', 'landing')
 
 Route::view('/debug', 'debug/debug');
 
-Route::view('/cart', 'cart')->name('cart');
+Route::view('/cart', 'cart')
+    ->middleware('auth')
+    ->name('cart');
 
 // Route::view('/cart', function() {
 //     ->name('offerCRUD')

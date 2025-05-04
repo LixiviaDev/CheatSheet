@@ -17,6 +17,8 @@
                     </button>
                 </div>
 
+                <x-nav.search-bar :class="'hidden md:block'" />
+
                 <!-- Settings Dropdown -->
                 {{-- <div class="hidden sm:flex sm:items-center sm:ms-6"> --}}
                 <div class="flex items-center ms-6">

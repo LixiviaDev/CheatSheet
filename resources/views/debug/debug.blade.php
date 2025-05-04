@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Debug</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body>
-    <div>
-        <x-productList />
-    </div>
-</body>
-</html>
+<?php
+    use App\Models\Product;
+
+    $product = Product::find(3);
+
+    dd($product->brand)
+?>
+
+<x-app-layout>
+
+</x-app-layout>

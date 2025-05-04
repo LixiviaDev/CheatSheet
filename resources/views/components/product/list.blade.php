@@ -1,12 +1,12 @@
+@props(['products' => []])
+
 <?php 
+    
     use Illuminate\Support\Facades\Auth;
 
+    use Illuminate\Pagination\LengthAwarePaginator;
+    
     use App\Models\Product;
-
-    // use Resources\Views\Components\Product\Card;
-    // use Resources\Views\Components\Button\Submit;
-
-    $products = Product::paginate(8)->fragment("products");
 
     // dd($products);
 ?>
@@ -31,6 +31,8 @@
         </div>
     @endforeach
 </div>
-<div class="pt-5">
-    {{ $products->links() }}
-</div>
+@if ($products instanceof LengthAwarePaginator)
+    <div class="pt-5">
+        {{ $products->links() }}
+    </div>
+@endif

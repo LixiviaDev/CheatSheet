@@ -1,9 +1,8 @@
 <?php
-    use Resources\Views\Components\Offer\ShortList;
-    use Resources\Views\Components\Product\List;
+    use App\Models\Product;
 ?>
 
 <x-app-layout>
     <x-offer.shortList />
-    <x-product.list />
+    <x-product.list :products="Product::paginate(8)->fragment('products')"/>
 </x-app-layout>

@@ -13,6 +13,9 @@ use App\Models\Product;
 Route::view('/', 'landing')
     ->name('home');
 
+Route::view('/search', 'search')
+    ->name('search');
+
 Route::view('/debug', 'debug/debug');
 
 Route::view('/cart', 'cart')
@@ -150,48 +153,6 @@ Route::delete('/product/{id}', function($id) {
     })
     ->name('productDelete')
     ->middleware(['auth', 'admin']);
-
-
-// Route::get('/assets/css', function () {
-//     $path = '../public/build/assets/' . $_ENV["CSS_FILE"];
-
-//     $mime = 'text/css';
-    
-//     return response()->file($path, [
-//         'Content-Type' => $mime,
-//         'Cache-Control' => 'max-age=31536000, public',
-//     ]);
-// });
-
-// Route::get('/assets/js', function () {
-//     $path = base_path() . '/public/build/assets/' . $_ENV["JS_FILE"];
-
-//     $mime = 'application/javascript';
-    
-//     return response()->file($path, [
-//         'Content-Type' => $mime,
-//         'Cache-Control' => 'max-age=31536000, public',
-//     ]);
-// });
-
-// Route::get('/build/assets/{asset}', function ($asset) {
-//     $path = base_path('/public/build/assets/' . $asset);
-
-//     if (!File::exists($path)) {
-//         abort(404);
-//     }
-
-//     $extension = Str::afterLast($asset, '.');
-
-//     $mime = $extension == 'css' ? 'text/css' : 'application/javascript';
-    
-//     // dd($mime);
-
-//     return response()->file($path, [
-//         'Content-Type' => $mime,
-//         'Cache-Control' => 'max-age=31536000, public',
-//     ]);
-// });
 
 Route::view('/dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

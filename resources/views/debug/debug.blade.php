@@ -3,7 +3,7 @@
 
     $product = Product::find(3);
 
-    dd($product->brand)
+    dd([$product->brandName(), $product->offers, $product->offersTotalDiscount()])
 ?>
 
 <x-app-layout>

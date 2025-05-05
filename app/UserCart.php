@@ -31,7 +31,7 @@ class UserCart
         $total = 0;
 
         foreach($this->cartItems as $cartItem)
-            $total += $cartItem->product->price() * $cartItem->quantity;
+            $total += $cartItem->totalPrice();
 
         return $total;
         // $this->cartItems->sum(function (Product $item) {

@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brand_id');
+            $table->foreign('brand_id')
+                ->references('id')
+                ->on('brands')
+                ->nullOnDelete()
+                ->nullable;
             $table->string("name");
             $table->float("pricePerKilo");
             $table->float("quantity");

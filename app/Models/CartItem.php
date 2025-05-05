@@ -31,4 +31,9 @@ class CartItem extends Model
     {
         return $this->BelongsTo(Product::class);
     }
+
+    public function totalPrice()
+    {
+        return $this->quantity * $this->product->price();
+    }
 }

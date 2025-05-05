@@ -16,7 +16,7 @@
         <h2 id="products" class="text-3xl pb-3 mb-3 border-b-1 border-solid">Carrito</h2>
         <div class="grid grid-cols-4 gap-3 md:gap-5">
             <div class="col-span-4 md:col-span-1">
-                info del usuario
+                {{-- info del usuario --}}
             </div>
             <div class="col-span-4 md:col-span-1 block md:hidden">
                 <div class="flex p-5 border-0 bg-gray text-not-dark items-center gap-2 font-bold">

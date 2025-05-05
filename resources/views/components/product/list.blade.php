@@ -11,9 +11,7 @@
     // dd($products);
 ?>
 
-<div CLASS="flex justify-between border-b-1 border-solid">
-    <h2 id="products" class="text-3xl pb-3 mb-3">Productos</h2>
-
+<x-text.title.section :title="__('Productos')">
     @if(Auth::user()?->isAdmin)
         <form method="get" action="{{ route('productCRUD', [ 'id' => -1 ]) }}">
             <x-button.submit>
@@ -21,7 +19,7 @@
             </x-button>
         </form>
     @endif
-</div>
+</x-text.title.section>
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5">
     @foreach ($products as $product)

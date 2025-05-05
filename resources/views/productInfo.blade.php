@@ -3,6 +3,7 @@
 
     $product = Product::find($id);
 
+    $offers = $product->offers;
     $offersTotalDiscount = $product->offersTotalDiscount();
 ?>
 
@@ -79,5 +80,14 @@
                 <x-button.addToCart :product="$product" :isInline="true"/>
             </div>
         </div>
+        
+        @if(count($offers) > 0)
+            <x-text.title.section :title="__('Ofertas relacionadas')" />
+
+            @foreach($offers as $offer)
+                <x-offer.banner :offer="$offer"/>
+            @endforeach
+        @endif
+
     </div>
 </x-app-layout>

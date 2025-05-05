@@ -26,13 +26,13 @@
 </div>
 
 <div class="flex flex-col w-full gap-2 md:gap-5">
-    <x-offer.banner :offerId="$offers[0]->id" :base64="$offers[0]->bannerBase64" />
+    <x-offer.banner :offer="$offer[0]" />
     <div class="flex w-full gap-2 md:gap-5">
         <div class="w-[50%]">
-            <x-offer.banner :offerId="$offers[1]->id" :base64="$offers[1]->bannerBase64" />
+            <x-offer.banner :offer="$offer[1]" />
         </div>
         <div class="w-[50%]">
-            <x-offer.banner :offerId="$offers[2]->id" :base64="$offers[2]->bannerBase64" />
+            <x-offer.banner :offer="$offer[2]" />
         </div>
     </div>
 </div>

@@ -9,9 +9,7 @@
 <x-app-layout>
     <div class="flex flex-col gap-3">
         <div class="flex justify-between">
-            <x-button.link :href="route('home')" :style="'simple'">
-                < Seguir comprando
-            </x-button.link>
+            <x-nav.continueShopping />
 
             <div class="flex justify-end gap-3">
                 @if (Auth::user()?->isAdmin)

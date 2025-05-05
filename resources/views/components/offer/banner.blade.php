@@ -1,3 +1,5 @@
-<a href="/offer/{{ $offerId }}">
-    <img class="w-full" src="data:image/png;base64,{{ $base64 }}" alt="Banner">
+@props(['offer'])
+
+<a href="/offer/{{ $offer->id }}">
+    <img class="w-full" src="data:image/png;base64,{{ $offer->bannerBase64 }}" alt="Banner">
 </a>

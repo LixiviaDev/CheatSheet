@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Brand;
+use App\Models\brand;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,7 +14,7 @@ class BrandSeeder extends Seeder
      */
     public function run(): void
     {
-        Brand::factory(1)->sequence([
+        brand::factory(1)->sequence([
             'name' => 'El horno',
             ])->create();
     }

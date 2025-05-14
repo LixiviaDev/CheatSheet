@@ -46,7 +46,7 @@ Route::put('/cart', function() {
     return to_route('cart');
     })
     ->name('offerCreate')
-    ->middleware(['auth', 'admin']);
+    ->middleware(['auth']);
     // ->name('Add to cart');
 
 Route::view('/brand/{id}', 'brand', ['id' => 'id'])

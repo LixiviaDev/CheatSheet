@@ -41,15 +41,33 @@
                             </x-button.dropdownLink>
 
                             <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
+                            @if (Auth::check())
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
 
-                                <x-button.dropdownLink :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-button.dropdownLink>
-                            </form>
+                                    <x-button.dropdownLink :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-button.dropdownLink>
+                                </form>
+                            @else
+                                <form method="GET" action="{{ route('login') }}">
+                                    <x-button.dropdownLink :href="route('login')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log In') }}
+                                    </x-button.dropdownLink>
+                                </form>
+                                <form method="GET" action="{{ route('signin') }}">
+                                    <x-button.dropdownLink :href="route('signin')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Sign In') }}
+                                    </x-button.dropdownLink>
+                                </form>
+                                
+                            @endif
                         </x-slot>
                     </x-menu.dropdown>
                 </div>

@@ -72,8 +72,13 @@
                 <div class="font-medium text-base text-not-black">{{ Auth::user()->name ?? "guest" }}</div>
                 <div class="font-medium text-sm text-not-dark">{{ Auth::user()->email ?? "email" }}</div>
             </div> --}}
+            
 
             <div>
+                <x-button.hamburgerLink :href="route('home')">
+                    {{ __('Home') }}
+                </x-button.hamburgerLink>
+            
                 @if (Auth::check())
                     <x-button.hamburgerLink :href="route('profile')">
                         {{ __('Profile') }}
@@ -91,7 +96,6 @@
                         </x-button.hamburgerLink>
                     </form>
                 @else
-                    <!-- Authentication -->
                     <form method="GET" action="{{ route('login') }}">
                         @csrf
                         @method('GET')
@@ -102,11 +106,17 @@
                             {{ __('Log In') }}
                         </x-button.hamburgerLink>
                     </form>
+                    <form method="GET" action="{{ route('signin') }}">
+                        @csrf
+                        @method('GET')
+
+                        <x-button.hamburgerLink :href="route('signin')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Sign In') }}
+                        </x-button.hamburgerLink>
+                    </form>
                 @endif
-                
-                <x-button.hamburgerLink :href="route('home')">
-                    {{ __('Home') }}
-                </x-button.hamburgerLink>
 
                 <x-button.hamburgerLink :href="route('cart')">
                     {{ __('Cart') }}

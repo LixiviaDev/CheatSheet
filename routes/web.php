@@ -19,12 +19,12 @@ Route::view('/search', 'search')
 
 Route::view('/debug', 'debug/debug');
 
-Route::get('/users', function() {
-    $users = User::all();
+// Route::get('/users', function() {
+//     $users = User::all();
 
-    dd($users);
-}
-);
+//     dd($users);
+// }
+// );
 
 Route::view('/cart', 'cart')
     ->middleware('auth')

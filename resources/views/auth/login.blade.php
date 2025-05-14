@@ -50,6 +50,9 @@
                     </a> --}}
                 @endif
     
+                <x-button.link :href="route('signin')" :style="'simple-small'">
+                    {{ __('Create a new account') }}
+                </x-button.link>    
                 <x-button.submit>
                     {{ __('Log in') }}
                 </x-button.submit>

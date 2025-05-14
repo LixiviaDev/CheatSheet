@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
+use App\Models\User;
 use App\Models\Offer;
 use App\Models\CartItem;
 use App\Models\Product;
@@ -17,6 +18,13 @@ Route::view('/search', 'search')
     ->name('search');
 
 Route::view('/debug', 'debug/debug');
+
+Route::get('/users', function() {
+    $users = User::all();
+
+    dd($users);
+}
+);
 
 Route::view('/cart', 'cart')
     ->middleware('auth')

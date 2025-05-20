@@ -6,12 +6,19 @@
     use Resources\Views\Components\Input\file;
     use Resources\Views\Components\Button\Submit;
 
-    $newProduct = !($id >= 0);
+    $newProduct = $id < 0;
     
     if($newProduct)
+    {
       $product = new Product();
+
+      $product->pricePerKilo = 0;
+      $product->quantity = 0;
+    }
     else
+    {
       $product = Product::find($id);
+    }
 ?>
 
 <x-app-layout>

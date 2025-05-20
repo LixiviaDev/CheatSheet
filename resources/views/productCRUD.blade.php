@@ -1,5 +1,6 @@
 <?php 
     use App\Models\Product;
+    use App\Models\Brand;
 
     use Resources\Views\Components\Input\text;
     use Resources\Views\Components\Input\number;
@@ -12,6 +13,7 @@
     {
       $product = new Product();
 
+      $product->brand = Brand::find(1);
       $product->pricePerKilo = 0;
       $product->quantity = 0;
     }

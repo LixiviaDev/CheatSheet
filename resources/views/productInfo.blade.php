@@ -14,7 +14,7 @@
 
             <div class="flex justify-end gap-3">
                 @if (Auth::user()?->isAdmin)
-                    <form method="get" action="{{ route('productCRUD', [ 'id' => -1 ]) }}">
+                    <form method="get" action="{{ route('productCRUD', [ 'id' => $id ]) }}">
                         <x-button.submit>
                             Editar
                         </x-button.submit>
@@ -22,7 +22,7 @@
                 @endif
                 
                 @if (Auth::user()?->isAdmin)
-                    <form method="POST" action="{{ route('productDelete', [ 'id' => -1 ]) }}">
+                    <form method="POST" action="{{ route('productDelete', [ 'id' => $id ]) }}">
                         @csrf
                         @method('DELETE')
                         <x-button.submit :style="'danger'">

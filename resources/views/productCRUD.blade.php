@@ -31,7 +31,7 @@
         
           <x-input.text :title="'Nombre'" :columnName="'name'" :currentValue="$product?->name" />
 
-          <x-input.text :title="'Marca'" :columnName="'brand'" :currentValue="$product?->brand" />
+          <x-input.text :title="'Marca'" :columnName="'brand'" :currentValue="$product?->brandName()" />
         
           <x-input.number :title="'Precio por Kilo'" :columnName="'pricePerKilo'" :currentValue="$product?->pricePerKilo" />
 

@@ -21,7 +21,7 @@ class Product extends Model
     }    
 
     public function undiscountedPricePerKilo() {
-        return $this->pricePerKilo();
+        return $this->pricePerKilo;
     }    
 
     public function pricePerKilo() {

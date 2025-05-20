@@ -17,7 +17,7 @@ Route::view('/', 'landing')
 Route::view('/search', 'search')
     ->name('search');
 
-Route::view('/debug', 'debug/debug');
+// Route::view('/debug', 'debug/debug');
 
 // Route::get('/users', function() {
 //     $users = User::all();
